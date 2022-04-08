@@ -1,4 +1,5 @@
 import 'package:cozy_house_finder/common/style.dart';
+import 'package:cozy_house_finder/pages/home_page.dart';
 import 'package:cozy_house_finder/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cozy House Finder',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
