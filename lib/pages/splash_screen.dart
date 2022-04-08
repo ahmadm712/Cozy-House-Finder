@@ -61,7 +61,9 @@ class SplashScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.4,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/home');
+                      },
                       child: Text(
                         'Explore Now',
                         style: whiteTextStyle.copyWith(
