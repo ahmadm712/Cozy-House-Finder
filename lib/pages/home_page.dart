@@ -2,17 +2,22 @@ import 'package:cozy_house_finder/common/style.dart';
 import 'package:cozy_house_finder/models/city.dart';
 import 'package:cozy_house_finder/models/space.dart';
 import 'package:cozy_house_finder/models/tips.dart';
+import 'package:cozy_house_finder/provider/space_provider.dart';
 import 'package:cozy_house_finder/widgets/bottom_nav_bar_item.dart';
 import 'package:cozy_house_finder/widgets/city_card.dart';
 import 'package:cozy_house_finder/widgets/space_card.dart';
 import 'package:cozy_house_finder/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var spaceProvider = Provider.of<SpaceProvider>(context);
+    spaceProvider.getRecommendedSpace();
+
     List<CityModel> listCity = [
       CityModel(
         id: '1',
@@ -43,6 +48,13 @@ class HomePage extends StatelessWidget {
         name: 'Kuretakeso Hott',
         price: 52,
         rating: 4,
+        address: '',
+        mapUrl: '',
+        numberOfBedrooms: 2,
+        numberOfCupboards: 2,
+        numberOfKitchens: 2,
+        phone: '',
+        photos: [],
       ),
       SpaceModel(
         city: 'Bogor',
@@ -52,6 +64,13 @@ class HomePage extends StatelessWidget {
         name: 'Roemah Nenek',
         price: 11,
         rating: 5,
+        address: '',
+        mapUrl: '',
+        numberOfBedrooms: 2,
+        numberOfCupboards: 2,
+        numberOfKitchens: 2,
+        phone: '',
+        photos: [],
       ),
       SpaceModel(
         city: 'Jakarta',
@@ -61,6 +80,13 @@ class HomePage extends StatelessWidget {
         name: 'Darling How',
         price: 20,
         rating: 5,
+        address: '',
+        mapUrl: '',
+        numberOfBedrooms: 2,
+        numberOfCupboards: 2,
+        numberOfKitchens: 2,
+        phone: '',
+        photos: [],
       ),
     ];
 
