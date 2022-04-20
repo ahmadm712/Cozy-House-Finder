@@ -180,18 +180,29 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(left: edge),
-              child: Column(
-                children: listSpace
-                    .map(
-                      (space) => Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        child: SpaceCard(
-                          space: space,
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
+              child: FutureBuilder<List<SpaceModel>>(
+                  future: spaceProvider.getRecommendedSpace(),
+                  builder: (context, AsyncSnapshot<List<SpaceModel>> snapshot) {
+                    if (snapshot.hasData) {
+                      List<SpaceModel>? listSpaceApi = snapshot.data;
+                      return Column(
+                        children: listSpaceApi!
+                            .map(
+                              (space) => Padding(
+                                padding: const EdgeInsets.only(bottom: 30),
+                                child: SpaceCard(
+                                  space: space,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
             )
           ],
         ),
