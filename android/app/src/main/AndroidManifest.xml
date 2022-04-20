@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cozy_house_finder">
+    <uses-permission android:name="android.permission.CALL_PHONE" />
    <application
         android:label="cozy_house_finder"
         android:name="${applicationName}"

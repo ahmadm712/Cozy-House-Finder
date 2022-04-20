@@ -1,5 +1,6 @@
 import 'package:cozy_house_finder/common/style.dart';
 import 'package:cozy_house_finder/pages/detail_page.dart';
+import 'package:cozy_house_finder/pages/error_page.dart';
 import 'package:cozy_house_finder/pages/home_page.dart';
 import 'package:cozy_house_finder/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const HomePage(),
         '/detail-page': (context) => const DetailPage(),
+        '/err': (context) => const ErrorPage(),
       },
     );
   }

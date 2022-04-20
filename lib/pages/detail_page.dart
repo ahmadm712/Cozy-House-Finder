@@ -2,9 +2,18 @@ import 'package:cozy_house_finder/common/style.dart';
 import 'package:cozy_house_finder/models/facility.dart';
 import 'package:cozy_house_finder/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
+
+  launcUrl(String url) async {
+    if (await canLaunch(url)) {
+      launch(url);
+    } else {
+      throw url;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +140,15 @@ class DetailPage extends StatelessWidget {
                               'Jln Kappan Sukses No 20\nPalembang',
                               style: greyTextStyle,
                             ),
-                            Image.asset(
-                              'assets/btn_map.png',
-                              width: 40,
+                            InkWell(
+                              onTap: () {
+                                launcUrl(
+                                    'https://g.page/horaiosmalioboro?share');
+                              },
+                              child: Image.asset(
+                                'assets/btn_map.png',
+                                width: 40,
+                              ),
                             )
                           ],
                         ),
@@ -146,7 +161,9 @@ class DetailPage extends StatelessWidget {
                         height: 50,
                         width: MediaQuery.of(context).size.width - (2 * edge),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launch('tel:083120047822');
+                          },
                           child: Text(
                             'Book Now',
                             style: whiteTextStyle.copyWith(
