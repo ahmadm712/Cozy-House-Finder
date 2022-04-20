@@ -14,12 +14,12 @@ class BottomNavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(),
+        const Spacer(),
         Image.asset(
           imgUrl,
           width: 26,
         ),
-        Spacer(),
+        const Spacer(),
         if (isActive)
           Container(
             width: 30,
