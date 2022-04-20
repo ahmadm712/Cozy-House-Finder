@@ -10,10 +10,7 @@ class SpaceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          '/detail-page',
-        );
+        Navigator.pushNamed(context, '/detail-page', arguments: space);
       },
       child: Row(
         children: [
