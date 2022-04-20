@@ -7,16 +7,16 @@ import 'package:url_launcher/url_launcher.dart';
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
 
-  launcUrl(String url) async {
-    if (await canLaunch(url)) {
-      launch(url);
-    } else {
-      throw url;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    launcUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        Navigator.pushReplacementNamed(context, '/err');
+      }
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -142,8 +142,9 @@ class DetailPage extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                launcUrl(
-                                    'https://g.page/horaiosmalioboro?share');
+                                // launcUrl(
+                                //     'https://g.page/horaiosmalioboro?share');
+                                launcUrl('asda');
                               },
                               child: Image.asset(
                                 'assets/btn_map.png',
