@@ -9,6 +9,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         bottom: false,
         child: Stack(
@@ -18,33 +19,6 @@ class DetailPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 350,
               fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: edge,
-                vertical: edge + 6,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset(
-                      'assets/btn_back.png',
-                      width: 40,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/btn_wishlist.png',
-                      width: 40,
-                    ),
-                  ),
-                ],
-              ),
             ),
             ListView(
               children: [
@@ -132,48 +106,133 @@ class DetailPage extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
+                      listPhoto(),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       Container(
-                        height: 88,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Location ',
+                          style: regularTextStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      // * Note : Location
+                      const SizedBox(
+                        height: 6,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: edge),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
-                              width: edge,
+                            Text(
+                              'Jln Kappan Sukses No 20\nPalembang',
+                              style: greyTextStyle,
                             ),
                             Image.asset(
-                              'assets/photo1.png',
-                              width: 110,
-                              height: 88,
-                              fit: BoxFit.cover,
-                            ),
-                            SizedBox(
-                              width: edge,
-                            ),
-                            Image.asset(
-                              'assets/photo2.png',
-                              width: 110,
-                              height: 88,
-                              fit: BoxFit.cover,
-                            ),
-                            SizedBox(
-                              width: edge,
-                            ),
-                            Image.asset(
-                              'assets/photo3.png',
-                              width: 110,
-                              height: 88,
-                              fit: BoxFit.cover,
-                            ),
+                              'assets/btn_map.png',
+                              width: 40,
+                            )
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: edge),
+                        height: 50,
+                        width: MediaQuery.of(context).size.width - (2 * edge),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Book Now',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
                     ],
                   ),
                 ),
               ],
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: edge,
+                vertical: edge + 6,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(
+                      'assets/btn_back.png',
+                      width: 40,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Image.asset(
+                      'assets/btn_wishlist.png',
+                      width: 40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  SizedBox listPhoto() {
+    return SizedBox(
+      height: 88,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          SizedBox(
+            width: edge,
+          ),
+          Image.asset(
+            'assets/photo1.png',
+            width: 110,
+            height: 88,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(
+            width: edge,
+          ),
+          Image.asset(
+            'assets/photo2.png',
+            width: 110,
+            height: 88,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(
+            width: edge,
+          ),
+          Image.asset(
+            'assets/photo3.png',
+            width: 110,
+            height: 88,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(
+            width: edge,
+          ),
+        ],
       ),
     );
   }

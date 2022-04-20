@@ -240,6 +240,7 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         bottom: false,
         child: ListView(
