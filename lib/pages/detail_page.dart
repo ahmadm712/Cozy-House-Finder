@@ -116,35 +116,57 @@ class DetailPage extends StatelessWidget {
                           style: regularTextStyle.copyWith(fontSize: 16),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: edge),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      listFacility(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      // * Note : Photo
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Photos ',
+                          style: regularTextStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Container(
+                        height: 88,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
                           children: [
-                            FaciltyItem(
-                              facility: FacilityModel(
-                                name: 'kitchen',
-                                imageUrl: 'assets/icon_kitchen.png',
-                                total: 2,
-                              ),
+                            SizedBox(
+                              width: edge,
                             ),
-                            FaciltyItem(
-                              facility: FacilityModel(
-                                name: 'bedroom',
-                                imageUrl: 'assets/icon_bedroom.png',
-                                total: 3,
-                              ),
+                            Image.asset(
+                              'assets/photo1.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
                             ),
-                            FaciltyItem(
-                              facility: FacilityModel(
-                                name: 'big lemari',
-                                imageUrl: 'assets/icon_cupboard.png',
-                                total: 3,
-                              ),
+                            SizedBox(
+                              width: edge,
+                            ),
+                            Image.asset(
+                              'assets/photo2.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: edge,
+                            ),
+                            Image.asset(
+                              'assets/photo3.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
                             ),
                           ],
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -152,6 +174,38 @@ class DetailPage extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Padding listFacility() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: edge),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FaciltyItem(
+            facility: FacilityModel(
+              name: 'kitchen',
+              imageUrl: 'assets/icon_kitchen.png',
+              total: 2,
+            ),
+          ),
+          FaciltyItem(
+            facility: FacilityModel(
+              name: 'bedroom',
+              imageUrl: 'assets/icon_bedroom.png',
+              total: 3,
+            ),
+          ),
+          FaciltyItem(
+            facility: FacilityModel(
+              name: 'big lemari',
+              imageUrl: 'assets/icon_cupboard.png',
+              total: 3,
+            ),
+          ),
+        ],
       ),
     );
   }
