@@ -1,4 +1,4 @@
-package com.example.cozy_house_finder
+package com.ahmad.cozy_house_finder
 
 import io.flutter.embedding.android.FlutterActivity
 
