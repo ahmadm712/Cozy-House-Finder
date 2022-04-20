@@ -2,6 +2,7 @@ import 'package:cozy_house_finder/common/style.dart';
 import 'package:cozy_house_finder/models/facility.dart';
 import 'package:cozy_house_finder/models/space.dart';
 import 'package:cozy_house_finder/widgets/facility_item.dart';
+import 'package:cozy_house_finder/widgets/rating_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -275,41 +276,17 @@ class DetailPage extends StatelessWidget {
 
   Row starAll() {
     return Row(
-      children: [
-        Image.asset(
-          'assets/icon_star.png',
-          width: 20,
-        ),
-        const SizedBox(
-          width: 2,
-        ),
-        Image.asset(
-          'assets/icon_star.png',
-          width: 20,
-        ),
-        const SizedBox(
-          width: 2,
-        ),
-        Image.asset(
-          'assets/icon_star.png',
-          width: 20,
-        ),
-        const SizedBox(
-          width: 2,
-        ),
-        Image.asset(
-          'assets/icon_star.png',
-          width: 20,
-        ),
-        const SizedBox(
-          width: 2,
-        ),
-        Image.asset(
-          'assets/icon_star.png',
-          width: 20,
-          color: greyColor,
-        ),
-      ],
+      children: [1, 2, 3, 4, 5]
+          .map(
+            (index) => Container(
+              margin: const EdgeInsets.only(left: 2),
+              child: RatingItem(
+                index: index,
+                rating: space.rating,
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
